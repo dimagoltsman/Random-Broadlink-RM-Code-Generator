@@ -1,4 +1,4 @@
-# Random-Broadlink-RM-Code-Generator
+# Random Broadlink RM Code Generator And Utils
 
 Every time i want to buy some new smart component for my smart home, i need a remote, just to have
 some random RF code for the component. why should i buy a remote that i use only once just to learn the code?
