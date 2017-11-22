@@ -7,7 +7,7 @@ var RF315 = "d7";
 var FOOTER = "0c00016f00000000";
 var REPEATS = "0c";
 var LONG_REPEAT = "9";
-var BITS = 24;
+var BYTES = 24;
 var DATA_LENGTH = "3400"
 
 function typePrefixOf(type){
@@ -28,7 +28,7 @@ function randomPulse(){
 
 function generate(type){
   var code = "";
-  for (i = 0; i < BITS; i++) {
+  for (i = 0; i < BYTES; i++) {
     var rand = randomPulse();
     code = code + rand;
   }
@@ -44,3 +44,20 @@ function generate(type){
   }
 }
 
+
+
+/*
+PROTOCOL:
+
+b2 RF
+
+0c repeats
+
+34 00   52 bytes follow (big endian)  24 pairs + 4 for the footer
+
+## ##       24 0d for a 1, 0d 24 for a 0
+
+0c 00 01 6f   (Footer)
+
+
+ */
