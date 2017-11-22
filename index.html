@@ -27,6 +27,19 @@
 
         $('#restable').append(html);
       }
+
+      function calcRepeats() {
+        var code = $("#usercode").val();
+        var repeats = getRepeats(code);
+        $("#repeats").html(repeats);
+      }
+      
+      function generateNewRepeat() {
+        var code = $("#usercode").val();
+        var repeats = $("#newrepeat").val();
+        var newCode = getNewCode(code, repeats);
+        $("#newcode").val(newCode);
+      }
     </script>
 
     <style>
@@ -69,6 +82,36 @@
             <tbody id="restable">
             </tbody>
         </table>
+    </div>
+
+    <br><br><br><br>
+
+
+    <div class="card">
+        <div class="card-body" style="width: 90rem;">
+            <h3>Change number of repeats in existing code</h3>
+            <br><br>
+            <form class="form-horizontal">
+            <div class="form-group">
+                <label for="usercode">Your code:</label>
+                <input type="text" class="form-control" id="usercode" placeholder="sgw0AA0kDSQkDQ0kJA0NJA0kDSQNJCQNJA0NJCQNDSQNJA0kDSQkDSQNDSQNJA0kDSQkDQwAAW8AAAAA" style="width: 65rem;" onchange="calcRepeats()">
+
+                <br><label for="repeats">Current Repeats:</label>
+                <b><div id="repeats" placeholder="14 (max 255)" style="width: 10rem;" >0</div></b>
+            </div>
+
+                <input type="text" class="form-control" id="newrepeat" placeholder="New Repeats (max 255)" style="width: 13rem;">
+                <br>
+                <button type="button" class="btn btn-success" onclick="generateNewRepeat()">Generate</button>
+
+                <div class="form-group">
+                    <br>
+                    <input type="text" class="form-control" id="newcode" placeholder="New Code" style="width: 65rem;">
+                </div>
+            </form>
+
+
+        </div>
     </div>
 
 </div>

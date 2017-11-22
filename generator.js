@@ -44,6 +44,29 @@ function generate(type){
   }
 }
 
+function getRepeats(b64){
+  var hex = base64ToHex(b64).replace(/ /g,'');
+  var repeats = hex.substr(2, 2);
+  var decimal = parseInt(repeats, 16);
+  return decimal;
+}
+
+function getNewCode(b64, repeats){
+  var hex = base64ToHex(b64).replace(/ /g,'');
+  var start = hex.substr(0, 2);
+  var end = hex.substr(4);
+
+  var hexrepeats = parseInt(repeats).toString(16);
+
+  if(hexrepeats.length == 1){
+    hexrepeats = "0" + hexrepeats;
+  }
+
+  var res = (start + hexrepeats + end);
+  return hexToBase64(res);
+
+}
+
 
 
 /*
