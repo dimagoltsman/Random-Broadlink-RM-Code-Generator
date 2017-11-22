@@ -1,6 +1,6 @@
 
 var HIGH_BIT = "240d";
-var LOW_BIT  = "od24";
+var LOW_BIT  = "0d24";
 var BITS_ARRAY = [HIGH_BIT, LOW_BIT];
 var RF433 = "b2";
 var RF315 = "d7";
@@ -8,7 +8,7 @@ var FOOTER = "0c00016f00000000";
 var REPEATS = "0c";
 var LONG_REPEAT = "9";
 var BYTES = 24;
-var DATA_LENGTH = "3400"
+var DATA_LENGTH = "3400";
 
 function typePrefixOf(type){
   if(type === "RF433"){
