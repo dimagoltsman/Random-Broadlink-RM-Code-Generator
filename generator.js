@@ -6,7 +6,7 @@ var RF433 = "b2";
 var RF315 = "d7";
 var FOOTER = "0c00016f00000000";
 var REPEATS = "0c";
-var LONG_REPEAT = "09";
+var LONG_REPEAT = "5c";
 var BYTES = 24;
 var DATA_LENGTH = "3400";
 
