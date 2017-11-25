@@ -12,7 +12,7 @@ var DATA_LENGTH = "3400";
 
 function typePrefixOf(type){
   if(type === "RF433"){
-    // return RF433;
+    return RF433;
   }else if(type === "RF315"){
     return RF315;
   }else{
