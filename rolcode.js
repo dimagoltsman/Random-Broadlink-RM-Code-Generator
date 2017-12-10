@@ -19,13 +19,27 @@ function startDecode() {
 
   var joined = normilized.join("");
 
+  if(joined.indexOf(startHeader) == -1){
+    throw new Error("cant find start header")
+  }
+
   var codeStartIndex = joined.indexOf(startHeader) + startHeader.length;
 
 
   var code = joined.substr(codeStartIndex);
-  var singleCode = code.substr(0, 67 * 4);
+
+
+
+  var singleCode = code.substr(0, 66 * 4 );
+
+  console.log(codeStartIndex);
+  console.log(singleCode);
+  console.log(code.substr(0, 66 * 4 + 12) );
+
+
 
   var singleSplitted = singleCode.match(/.{1,4}/g);
+
 
   $("#singlehex").val(singleSplitted.join(" "));
 
@@ -52,8 +66,10 @@ function startDecode() {
 
 
 
-  console.log(encrypted);
-  console.log(fixed);
+  // console.log(code);
+  // console.log(joined);
+  // console.log(singleSplitted);
+
 
   // var html = '<tr scope="row"><td>' + type + '</td><td>' + generated.regular + '</td><td>' + generated.long + '</td></tr>';
 
@@ -67,6 +83,12 @@ function toBits(byte) {
   if(byte == "180c"){
     return "0";
   }
+
+  if(byte.substr(2, 2) == "00"){
+    return "1";
+  }
+
+  throw new Error("cant decode " + byte)
 }
 
 
@@ -101,6 +123,6 @@ function is18(byte){
 }
 
 function is89(byte){
-  var is = Array("89", "8a", "8b", "8c", "88", "87", "86");
+  var is = Array("89", "8a", "8b", "8c", "88", "87", "86", "7c", "7d", "7e", "7b", "7a", "79");
   return (is.indexOf(byte) > -1);
 }
