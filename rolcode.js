@@ -45,7 +45,7 @@ function startDecode() {
 
 
 
-  var bitstream = singleSplitted.map(toBits).join("");
+  var bitstream = reverse(singleSplitted.map(toBits).join(""));
   $("#fullbits").val(bitstream);
 
 
@@ -125,4 +125,16 @@ function is18(byte){
 function is89(byte){
   var is = Array("89", "8a", "8b", "8c", "88", "87", "86", "7c", "7d", "7e", "7b", "7a", "79");
   return (is.indexOf(byte) > -1);
+}
+
+
+function reverse(s){
+  var str = s;
+  var reverse = '';
+  for (var i=str.length;i>0;i--){
+
+    var newstr = str.substring(0,i)
+    reverse += newstr.substr(-1,1)
+  }
+  return reverse;
 }
