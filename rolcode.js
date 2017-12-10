@@ -32,9 +32,9 @@ function startDecode() {
 
   var singleCode = code.substr(0, 66 * 4 );
 
-  console.log(codeStartIndex);
-  console.log(singleCode);
-  console.log(code.substr(0, 66 * 4 + 12) );
+  // console.log(codeStartIndex);
+  // console.log(singleCode);
+  // console.log(code.substr(0, 66 * 4 + 12) );
 
 
 
@@ -49,9 +49,11 @@ function startDecode() {
   $("#fullbits").val(bitstream);
 
 
-  var encrypted = bitstream.substr(33)
+  var encrypted = bitstream.substr(34)
 
-  var fixed = bitstream.substr(0,33)
+  var fixed = bitstream.substr(0,34)
+
+  console.log(fixed.length + " " + encrypted.length)
 
   var rv = fixed.substr(0, 2);
   var buttons = fixed.substr(2, 4);
