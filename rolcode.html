@@ -36,8 +36,7 @@
             <h3>Rolling code rev eng</h3>
             <br><br>
 
-            <p>Protocol:</p>
-            <img src="protocol.png" class="img-responsive">
+
 
 
 
@@ -61,29 +60,62 @@
 
                     <br>
                     <label for="fullbits">Full bit stream:</label>
-                    <input type="text" class="form-control" id="fullbits" style="width: 65rem;"> </input>
+                    <input type="text" class="form-control" id="fullbits" style="width: 40rem;"> </input>
 
 
                     <br>
-                    <label for="encpart">Encrypted part (or seed if in cloning mode):</label>
-                    <input type="text" class="form-control" id="encpart" style="width: 65rem;"> </input>
 
-                    <br>
-                    <label for="fixedpart">Fixed part:</label>
-                    <input type="text" class="form-control" id="fixedpart" style="width: 65rem;"> </input>
+                    <div class = "row">
 
+
+                        <div class="col col-md-4" style="display: none">
+                             <label for="fixedpart">Fixed part:</label>
+                             <input type="text" class="form-control" id="fixedpart" style="width: 24rem;"> </input>
+                        </div>
+
+
+                        <div class="col"></div>
+                        <div class="col"></div>
+
+                    </div>
                     <br>
+
+
+                    <div class = "row col-md-9">
+
+                        <div class="col">
                     <label for="rv">Repeat, Vlow:</label>
-                    <input type="text" class="form-control" id="rv" style="width: 65rem;"> </input>
+                    <input type="text" class="form-control" id="rv" style="width: 3rem;"> </input>
+                        </div>
 
-                    <br>
+                        <div class="col">
                     <label for="buttons">Button status:</label>
-                    <input type="text" class="form-control" id="buttons" style="width: 65rem;"> </input>
-
-                    <br>
+                    <input type="text" class="form-control" id="buttons" style="width: 4rem;"> </input>
+                        </div>
+                        <div class="col">
                     <label for="sn">Serial Number:</label>
-                    <input type="text" class="form-control" id="sn" style="width: 65rem;"> </input>
+                    <input type="text" class="form-control" id="sn" style="width: 20rem;"> </input>
+                        </div>
+                        <div class="col">
+                            <label for="encpart">Encrypted part (or seed):</label>
+                            <input type="text" class="form-control" id="encpart" style="width: 20rem;"> </input>
+                        </div>
 
+
+                    </div>
+
+                    <br><br>
+                    <div class="row">
+                        <div class="col">
+                            Protocol:
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <img src="protocol.png" class="img-responsive">
+                        </div>
+                    </div>
 
                 </div>
             </form>
