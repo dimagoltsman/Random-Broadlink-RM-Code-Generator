@@ -1,22 +1,13 @@
+
+var startHeader = "0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c89";
+
 function startDecode() {
 
-
-
   var b64 = $("#usercode").val();
-
   var hex = base64ToHex(b64)
-
-  $("#hex").val(hex);
-
   var hexArr = hex.split(" ");
-
   var strippedBroadlink = hexArr.slice(4);
-
-
   var normilized = normilizeArray(strippedBroadlink);
-
-  var startHeader = "0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c0c89";
-
   var joined = normilized.join("");
 
   if(joined.indexOf(startHeader) == -1){
@@ -24,58 +15,28 @@ function startDecode() {
   }
 
   var codeStartIndex = joined.indexOf(startHeader) + startHeader.length;
-
-
   var code = joined.substr(codeStartIndex);
-
-
-
   var singleCode = code.substr(0, 66 * 4 );
-
-  // console.log(codeStartIndex);
-  // console.log(singleCode);
-  // console.log(code.substr(0, 66 * 4 + 12) );
-
-
-
   var singleSplitted = singleCode.match(/.{1,4}/g);
-
-
-  $("#singlehex").val(singleSplitted.join(" "));
-
-
-
-  var bitstream = reverse(singleSplitted.map(toBits).join(""));
-  $("#fullbits").val(bitstream);
-
-
+  var bitstream = reverse(singleSplitted.map(toBits).join("")); //reverse because code sent with LSB
   var encrypted = bitstream.substr(34)
-
   var fixed = bitstream.substr(0,34)
 
-  console.log(fixed.length + " " + encrypted.length)
+  // console.log(fixed.length + " " + encrypted.length)
 
   var rv = fixed.substr(0, 2);
   var buttons = fixed.substr(2, 4);
   var sn = fixed.substr(4, 28);
 
+  $("#hex").val(hex);
+  $("#singlehex").val(singleSplitted.join(" "));
+  $("#fullbits").val(bitstream);
   $("#encpart").val(encrypted);
   $("#fixedpart").val(fixed);
   $("#rv").val(rv);
   $("#buttons").val(buttons);
   $("#sn").val(sn);
 
-
-
-
-  // console.log(code);
-  // console.log(joined);
-  // console.log(singleSplitted);
-
-
-  // var html = '<tr scope="row"><td>' + type + '</td><td>' + generated.regular + '</td><td>' + generated.long + '</td></tr>';
-
-  // $('#restable').append(html);
 }
 
 function toBits(byte) {
