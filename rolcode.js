@@ -92,12 +92,5 @@ function is89(byte){
 
 
 function reverse(s){
-  var str = s;
-  var reverse = '';
-  for (var i=str.length;i>0;i--){
-
-    var newstr = str.substring(0,i)
-    reverse += newstr.substr(-1,1)
-  }
-  return reverse;
+  return s.split("").reverse().join("");
 }
