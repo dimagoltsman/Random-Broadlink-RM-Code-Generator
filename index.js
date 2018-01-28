@@ -26,6 +26,10 @@ function generateNewRepeat() {
 
 function startGenerateLivolo(){
     var remote = $('#remoteId').val();
+    if(remote == ""){
+        alert("please select remote id");
+        return;
+    }
     var btn =  $('#liv_btn').val();
     var code = generateLivolo(remote, btn);
     var html = '<tr scope="row">'+ '<td>' + 'Livolo' + '</td>' +'<td>' + code + '</td>';
