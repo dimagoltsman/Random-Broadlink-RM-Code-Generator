@@ -7,6 +7,7 @@
     <script src="hex.js"></script>
     <script src="generator.js"></script>
     <script src="index.js"></script>
+    <script src="pageActions.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
@@ -29,51 +30,66 @@
 <div class="container">
     <h1>Random Broadlink RM Code Generator</h1>
     <br><br>
-    <div class="card">
-        <div class="card-body" style="width: 90rem;">
-            <h3>Generate Random Code</h3>
-            <div class="row">
-                <label for="signal_type" class="badge-pill col col-2">type:</label>
-                <select id="signal_type" class="custom-select col col-2">
-                    <option value="RF433">RF433</option>
-                    <option value="RF315">RF315</option>
 
-                </select>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="#" onclick="showRandomCodeTab()">Generate Random Code</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" onclick="showRepeatsTab()">Change Repeats</a>
+        </li>
+    </ul>
+
+    <div id="random-code-section">
+        <div class="card">
+            <div class="card-body" style="width: 90rem;">
+                <h3>Generate Random Code</h3>
+                <div class="row">
+                    <label for="signal_type" class="badge-pill col col-2">type:</label>
+                    <select id="signal_type" class="custom-select col col-2">
+                        <option value="RF433">RF433</option>
+                        <option value="RF315">RF315</option>
+
+                    </select>
+                </div>
+                <button type="button" class="btn btn-success" onclick="startGenerate()">Generate</button>
             </div>
-            <button type="button" class="btn btn-success" onclick="startGenerate()">Generate</button>
         </div>
+
+        <br><br><br><br>
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">Type</th>
+                    <th scope="col">Regular code</th>
+                    <th scope="col">same code with long repeat (for learning)</th>
+                </tr>
+                </thead>
+                <tbody id="restable">
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
-    <br><br><br><br>
-    <div class="table-responsive">
-        <table class="table table-striped table-hover">
-            <thead>
-            <tr>
-                <th scope="col">Type</th>
-                <th scope="col">Regular code</th>
-                <th scope="col">same code with long repeat (for learning)</th>
-            </tr>
-            </thead>
-            <tbody id="restable">
-            </tbody>
-        </table>
-    </div>
 
-    <br><br><br><br>
-
-
-    <div class="card">
+    <div class="card" id="repeats-section">
         <div class="card-body" style="width: 90rem;">
             <h3>Change number of repeats in existing code (also works for IR codes)</h3>
             <br><br>
             <form class="form-horizontal">
-            <div class="form-group">
-                <label for="usercode">Your code:</label>
-                <input type="text" class="form-control" id="usercode" placeholder="sgw0AA0kDSQkDQ0kJA0NJA0kDSQNJCQNJA0NJCQNDSQNJA0kDSQkDSQNDSQNJA0kDSQkDQwAAW8AAAAA" style="width: 65rem;" onchange="calcRepeats()">
+                <div class="form-group">
+                    <label for="usercode">Your code:</label>
+                    <input type="text" class="form-control" id="usercode"
+                           placeholder="sgw0AA0kDSQkDQ0kJA0NJA0kDSQNJCQNJA0NJCQNDSQNJA0kDSQkDSQNDSQNJA0kDSQkDQwAAW8AAAAA" style="width: 65rem;"
+                           onchange="calcRepeats()">
 
-                <br><label for="repeats">Current Repeats:</label>
-                <b><div id="repeats" placeholder="14 (max 255)" style="width: 10rem;" >0</div></b>
-            </div>
+                    <br><label for="repeats">Current Repeats:</label>
+                    <b>
+                        <div id="repeats" placeholder="14 (max 255)" style="width: 10rem;">0</div>
+                    </b>
+                </div>
 
                 <input type="text" class="form-control" id="newrepeat" placeholder="New Repeats (max 255)" style="width: 13rem;">
                 <br>
