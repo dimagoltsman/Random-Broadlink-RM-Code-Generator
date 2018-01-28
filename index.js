@@ -22,3 +22,13 @@ function generateNewRepeat() {
   var newCode = getNewCode(code, repeats);
   $("#newcode").val(newCode);
 }
+
+
+function startGenerateLivolo(){
+    var remote = $('#remoteId').val();
+    var btn =  $('#liv_btn').val();
+    var code = generateLivolo(remote, btn);
+    var html = '<tr scope="row">'+ '<td>' + 'Livolo' + '</td>' +'<td>' + code + '</td>';
+
+    $('#livtable').append(html);
+}

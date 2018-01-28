@@ -87,6 +87,7 @@ function getNewCode(b64, repeats){
 
 
 function generateLivolo(remoteId, btn){
+    // the livolo code came from https://www.tyjtyj.com/livolo.php, dont know who wrote it, but big thanx
     header = "b280260013";
     id_bin = (+remoteId).toString(2);
     id_bin = id_bin.leftJustify(16,0);
@@ -112,7 +113,7 @@ function generateLivolo(remoteId, btn){
 
     /*
 
-    https://www.tyjtyj.com/livolo.php
+
     Buttons:
     <option value='90'  >on only(scn1)</option>
 	<option value='40'  >on/off (toggle/btn10)</option>

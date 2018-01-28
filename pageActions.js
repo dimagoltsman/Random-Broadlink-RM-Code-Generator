@@ -3,11 +3,22 @@ window.onload = function() {
 };
 
 function showRandomCodeTab() {
+  hideAll();
   $('#random-code-section').show();
-  $('#repeats-section').hide();
 };
 
 function showRepeatsTab() {
-  $('#random-code-section').hide();
+  hideAll();
   $('#repeats-section').show();
 };
+
+function showLivoloTab() {
+    hideAll();
+    $('#livolo-section').show();
+};
+
+function hideAll() {
+    $('#repeats-section').hide();
+    $('#random-code-section').hide();
+    $('#livolo-section').hide();
+}
