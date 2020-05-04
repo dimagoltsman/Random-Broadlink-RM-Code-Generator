@@ -15,3 +15,4 @@ to generate your codes
 also, you are more than welcome to contribute and add more types (IR).
 you can use the protocol description here: 
 https://github.com/mjg59/python-broadlink/blob/master/protocol.md 
+   
