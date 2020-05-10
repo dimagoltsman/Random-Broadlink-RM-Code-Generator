@@ -1,6 +1,5 @@
 window.onload = function() {
-  // showRandomCodeTab();
-  showEnergenieTab();
+  showRandomCodeTab();
 };
 
 function showRandomCodeTab() {
